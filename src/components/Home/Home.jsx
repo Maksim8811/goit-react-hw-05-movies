@@ -1,6 +1,6 @@
 import {getTrendingMovies} from "../../servise"
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { FilmList } from "pages/FilmList"
 
 
 export const Home = () => {
@@ -13,13 +13,8 @@ export const Home = () => {
 
     return (
         <div>
-        {movies.map((movie) => {
-            return (
-                <ul key={movie.id}>
-                    <li><Link>{movie.original_title || movie.name}</Link></li>
-                </ul>
-            )
-        })}
+            <h1>Trending today</h1>
+            <FilmList movies={movies}/>
         </div>
     )
 }
