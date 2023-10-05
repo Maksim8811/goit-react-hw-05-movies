@@ -1,8 +1,7 @@
-
-import {getMoviesId} from "../servise"
 import { useState, useEffect } from "react"
-import {useLocation, useParams} from 'react-router-dom';
-import {Link} from "react-router-dom"
+import {useLocation, useParams, Link} from 'react-router-dom';
+import {getMoviesId} from "../servise"
+import {Cast} from "./Cast"
 
 
 
@@ -28,12 +27,15 @@ export const MoviesDetails = () => {
             console.log(movie)
 
         const backLinkHref = location.state?.from ?? "/movies"
-
+      
     return(
         <>
         <Link to={backLinkHref}>Go to back</Link>
-        <h2>MoviesDetails</h2>
-        <p>{movieId}</p>
+        <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.original_title}/>
+        <h2>{movie.original_title}</h2>
+        <p> <b>Rating:</b> {`${movie.vote_average}`}</p>
+        <p> <b>Owerview:</b> <br/> {`${movie.overview}`}</p>
+        <Cast/>
         
         </>
     )
