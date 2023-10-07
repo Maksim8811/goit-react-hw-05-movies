@@ -11,8 +11,12 @@ export const getTrendingMovies = async() => {
 export const getMoviesId = async movieId => {
     const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${KEY}&language=en-US` )
     return data 
+}
 
+export const getCast = async movieId => {
+    const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${KEY}&language=en-US`)
    
+    return data.cast
 }
 
 
