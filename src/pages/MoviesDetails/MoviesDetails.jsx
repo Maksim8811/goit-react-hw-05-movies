@@ -37,7 +37,7 @@ export const MoviesDetails = () => {
         
         <ul>
             <li><Link to="cast" className="cast_link">Cast</Link></li>
-            <li> <Link to="reviews" className="cast_link">Reviews</Link></li>
+            <li><Link to="reviews" className="cast_link">Reviews</Link></li>
         </ul>
        
         <Outlet/>

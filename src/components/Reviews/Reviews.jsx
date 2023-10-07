@@ -21,9 +21,9 @@ export const Reviews = () => {
         fetchReviews()
     }, [movieId])
 
-    return (
-        <>
-        {reviews && reviews.map(({author, id, content}) => {
+    return reviews.length === 0 ? (
+       <p>No reviews!</p> ) : (<>            
+        {reviews.map(({author, id, content}) => {
             console.log('reviews', reviews)
             return (
                 <ul key={id}>
@@ -33,8 +33,8 @@ export const Reviews = () => {
                     </li>
                 </ul>
             )
-        })}
-        </>
+        })}</>
+        
     )
 
 }
