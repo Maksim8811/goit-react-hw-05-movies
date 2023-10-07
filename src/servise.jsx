@@ -19,4 +19,10 @@ export const getCast = async movieId => {
     return data.cast
 }
 
+export const getReviews = async movieId => {
+    const {data} = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${KEY}&language=en-US&page=1`)
+    return data.results
+
+}
+
 

@@ -1,6 +1,6 @@
 import {getTrendingMovies} from "../../servise"
 import { useEffect, useState } from "react"
-import { FilmList } from "pages/FilmList"
+import { FilmList } from "pages/FilmList/FilmList"
 
 
 export const Home = () => {

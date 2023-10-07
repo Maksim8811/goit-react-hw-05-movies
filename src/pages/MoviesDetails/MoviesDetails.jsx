@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react"
 import {useLocation, useParams, Link, Outlet} from 'react-router-dom';
-import {getMoviesId} from "../servise"
-
-
-
+import {getMoviesId} from "../../servise"
+import "../MoviesDetails/MoviesDetails.css"
 
 export const MoviesDetails = () => {
         const location = useLocation()
@@ -26,7 +24,7 @@ export const MoviesDetails = () => {
         }, [movieId])
          
 
-        const backLinkHref = location.state?.from ?? "/movies"
+        const backLinkHref = location.state?.from ?? "/"
       
     return(
         <>
@@ -37,11 +35,12 @@ export const MoviesDetails = () => {
         <p> <b>Owerview:</b> <br/> {`${movie.overview}`}</p>
         <p> <b>Popularity:</b> {`${movie.popularity}`}</p>
         
-        <Link to="cast">Cast</Link>
-        <Outlet/>
-      
+        <ul>
+            <li><Link to="cast" className="cast_link">Cast</Link></li>
+            <li> <Link to="reviews" className="cast_link">Reviews</Link></li>
+        </ul>
        
-        
+        <Outlet/>
         </>
     )
 }

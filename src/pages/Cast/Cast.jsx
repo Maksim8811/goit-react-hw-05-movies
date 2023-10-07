@@ -1,6 +1,6 @@
 import { useParams} from 'react-router-dom';
-import {useEffect, useState, } from "react"
-import {getCast} from "../servise"
+import {useEffect, useState } from "react"
+import {getCast} from "../../servise"
 
 
 export const Cast = () => {
@@ -32,7 +32,9 @@ export const Cast = () => {
             return (
                 <ul key={id}>
                     <li>
-                        <img src="" alt={original_name}/>
+                        <img src={profile_path
+                             ? `https://image.tmdb.org/t/p/w200/${profile_path}` 
+                             : 'https://via.placeholder.com/182x273'} alt={original_name}/>
                         <p><b>Actor:</b> {original_name}</p>
                         <p><b>Character:</b> {character}</p>
                     </li>
