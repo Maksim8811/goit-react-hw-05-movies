@@ -36,8 +36,8 @@ export const MoviesDetails = () => {
         <p> <b>Popularity:</b> {`${movie.popularity}`}</p>
         
         <ul>
-            <li><Link to="cast" className="cast_link">Cast</Link></li>
-            <li><Link to="reviews" className="cast_link">Reviews</Link></li>
+            <li><Link to="cast" state={location.state} className="cast_link">Cast</Link></li>
+            <li><Link to="reviews" state={location.state} className="cast_link">Reviews</Link></li>
         </ul>
        
         <Outlet/>
