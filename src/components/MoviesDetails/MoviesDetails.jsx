@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import {useLocation, useParams, Link, Outlet} from 'react-router-dom';
 import {getMoviesId} from "../../servise"
+import {BASE_POSTER_URL, PLACEHOLDER} from "../../utilits/contactsUrl"
 import "./MoviesDetails.css"
 
 export const MoviesDetails = () => {
@@ -29,7 +30,13 @@ export const MoviesDetails = () => {
     return(
         <>
         <Link to={backLinkHref} >Go to back</Link>
-        <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.original_title}/>
+        {/* <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} alt={movie.original_title}/> */}
+        <img src={`${
+            movie.poster_path
+              ? BASE_POSTER_URL + movie.poster_path
+              : PLACEHOLDER + '?text=' + movie.original_title
+          }`}
+          alt={movie.original_title}/>
         <h2>{movie.original_title}</h2>
         <p> <b>Rating:</b> {`${movie.vote_average}`}</p>
         <p> <b>Owerview:</b> <br/> {`${movie.overview}`}</p>
