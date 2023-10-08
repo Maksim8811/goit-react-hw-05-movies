@@ -10,7 +10,7 @@ export const Home = () => {
     useEffect(() => {
     getTrendingMovies().then(setMovies)
         }, [])
-
+console.log('movies', movies)
     return (
         <div>
             <h1>Trending today</h1>

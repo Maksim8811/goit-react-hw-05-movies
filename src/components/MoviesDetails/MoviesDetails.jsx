@@ -28,8 +28,8 @@ export const MoviesDetails = () => {
       
     return(
         <>
-        <Link to={backLinkHref}>Go to back</Link>
-        <img src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`} alt={movie.original_title}/>
+        <Link to={backLinkHref} >Go to back</Link>
+        <img src={`https://image.tmdb.org/t/p/w200/${movie.poster_path}`} alt={movie.original_title}/>
         <h2>{movie.original_title}</h2>
         <p> <b>Rating:</b> {`${movie.vote_average}`}</p>
         <p> <b>Owerview:</b> <br/> {`${movie.overview}`}</p>

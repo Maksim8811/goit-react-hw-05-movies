@@ -1,7 +1,8 @@
-import { useSearchParams } from "react-router-dom"
+import {useSearchParams} from "react-router-dom"
 import {useEffect, useState } from "react"
 import {getSearchMovies} from "../../servise"
 import "../Movies/Movies.css"
+import { FilmList } from "pages/FilmList/FilmList"
 
 export const Movies = () => {
     const [searchName, setSearchName] = useState([])
@@ -23,29 +24,30 @@ export const Movies = () => {
       fetchMoviesName()
     },[productName])
 
+    const handleSubmit = e => {
+      e.preventDefault()
+      setSearchParams({name: e.target.value})
+     
+    
+      }
+
+      console.log('searchName', searchName)
 
     return (
         <div className="movies_input">
-       <form>
+        
+       <form onSubmit={() => handleSubmit(productName)}>
       <input
         type="text"
-        value={productName}
-        onChange={evt => {
-          evt.preventDefault()
-
-          setSearchParams({name: evt.target.value})}}
+        name="name"
         placeholder="name movie"
       />
 
-      <button type="submit" className="button_search" onClick={() => getSearchMovies(productName)}>Search</button>
+      <button type="submit" className="button_search">Search</button>
       </form>
-      {searchName.map(({original_title, id}) => {
-        return (
-          <ul key={id}>
-            <li>{original_title}</li>
-          </ul>
-        )
-      })}
+     
+
+      {<FilmList movies={searchName}/>}
       </div>
        
     )
