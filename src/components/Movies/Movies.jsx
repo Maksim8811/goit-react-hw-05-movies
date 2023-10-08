@@ -7,7 +7,7 @@ import { FilmList } from "pages/FilmList/FilmList"
 export const Movies = () => {
     const [searchName, setSearchName] = useState([])
     const [searchParam, setSearchParams] = useSearchParams()
-    const productName = searchParam.get("name") ?? ""
+    const productName = searchParam.get("query") ?? ""
    
    
     useEffect(() => {
@@ -26,7 +26,7 @@ export const Movies = () => {
 
     const handleSubmit = e => {
       e.preventDefault()
-      setSearchParams({name: e.target.value})
+      setSearchParams({query: e.target.value})
      
     
       }
@@ -39,7 +39,7 @@ export const Movies = () => {
        <form onSubmit={() => handleSubmit(productName)}>
       <input
         type="text"
-        name="name"
+        name="query"
         placeholder="name movie"
       />
 
