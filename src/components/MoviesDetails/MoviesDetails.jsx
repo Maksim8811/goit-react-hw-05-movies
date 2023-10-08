@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import {useLocation, useParams, Link, Outlet} from 'react-router-dom';
 import {getMoviesId} from "../../servise"
-import "../MoviesDetails/MoviesDetails.css"
+import "./MoviesDetails.css"
 
 export const MoviesDetails = () => {
         const location = useLocation()

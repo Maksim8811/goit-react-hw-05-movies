@@ -1,11 +1,11 @@
 import {Routes, Route} from "react-router-dom";
-import {MoviesDetails} from "pages/MoviesDetails/MoviesDetails";
+import {MoviesDetails} from "components/MoviesDetails/MoviesDetails";
 // import {lazy} from "react";
 
 import {Home} from "components/Home/Home";
 import {Movies} from "components/Movies/Movies";
 import {SharedLayout} from "components/SharedLayout/SharedLayout"
-import {Cast} from "pages/Cast/Cast"
+import {Cast} from "components/Cast/Cast"
 import {Reviews} from "components/Reviews/Reviews"
 
 export const App = () => {
