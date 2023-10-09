@@ -1,9 +1,10 @@
+import { Suspense } from "react"
 import { useParams} from 'react-router-dom';
 import {useEffect, useState } from "react"
 import {getCast} from "../../servise"
 
 
-export const Cast = () => {
+ const Cast = () => {
 
     const [cast, setCast] = useState([])
     const {movieId} = useParams()
@@ -24,10 +25,10 @@ export const Cast = () => {
 
         }, [movieId])
 
-        console.log('actors', cast)
 
     return (
         <>
+        <Suspense fallback={<div>Loading...</div>}>
         {cast.map(({id, original_name, character, profile_path}) => {
             return (
                 <ul key={id}>
@@ -42,6 +43,9 @@ export const Cast = () => {
                 
             )
         })}
+        </Suspense>
         </>
     )
 }
+
+export default Cast

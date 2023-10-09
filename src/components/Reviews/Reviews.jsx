@@ -1,8 +1,9 @@
+import { Suspense } from "react"
 import { useParams} from 'react-router-dom';
 import {useEffect, useState } from "react"
 import {getReviews} from "../../servise"
 
-export const Reviews = () => {
+ const Reviews = () => {
 
     const [reviews, setReviews] = useState([])
     const {movieId} = useParams()
@@ -21,8 +22,11 @@ export const Reviews = () => {
         fetchReviews()
     }, [movieId])
 
-    return reviews.length === 0 ? (
-       <p>No reviews!</p> ) : (<>            
+    return ( 
+        
+        reviews.length === 0 ? (
+       <p>No reviews!</p> ) : (<> 
+       <Suspense fallback={<div>Loading...</div>}>       
         {reviews.map(({author, id, content}) => {
             console.log('reviews', reviews)
             return (
@@ -33,8 +37,13 @@ export const Reviews = () => {
                     </li>
                 </ul>
             )
-        })}</>
-        
+        })}
+        </Suspense>    
+        </>
+       ) 
+    
     )
 
 }
+
+export default Reviews

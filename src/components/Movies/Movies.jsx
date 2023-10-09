@@ -1,16 +1,16 @@
+import { Suspense } from "react"
 import {useSearchParams} from "react-router-dom"
 import {useEffect, useState } from "react"
 import {getSearchMovies} from "../../servise"
 import "../Movies/Movies.css"
-import { FilmList } from "pages/FilmList/FilmList"
+import  FilmList  from "pages/FilmList/FilmList"
 
-export const Movies = () => {
+ const Movies = () => {
     const [searchName, setSearchName] = useState([])
     const [searchParam, setSearchParams] = useSearchParams()
     const productName = searchParam.get("query") ?? ""
    
-   
-    useEffect(() => {
+   useEffect(() => {
 
       const  fetchMoviesName = async () => {
         try{
@@ -27,28 +27,26 @@ export const Movies = () => {
     const handleSubmit = e => {
       e.preventDefault()
       setSearchParams({query: e.target.value})
-     
-    
-      }
-
-      console.log('searchName', searchName)
+     }
 
     return (
+      <Suspense fallback={<div>Loading...</div>}>
         <div className="movies_input">
-        
-       <form onSubmit={() => handleSubmit(productName)}>
-      <input
+        <form onSubmit={() => handleSubmit(productName)}>
+        <input
         type="text"
         name="query"
         placeholder="name movie"
-      />
+        />
 
-      <button type="submit" className="button_search">Search</button>
-      </form>
+        <button type="submit" className="button_search">Search</button>
+        </form>
      
 
       {<FilmList movies={searchName}/>}
       </div>
-       
+      </Suspense>
     )
 }
+
+export default Movies

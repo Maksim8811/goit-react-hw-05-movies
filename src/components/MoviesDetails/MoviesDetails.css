@@ -1,3 +1,32 @@
 .cast_link {
     text-decoration: none;
 }
+
+.list {
+    list-style: none;
+}
+
+.back_link {
+    margin-bottom: 23px;
+}
+
+.back_link_item {
+    text-decoration: none;
+    border: thick double #aaacad;
+}
+
+.img_movDetails {
+
+    border-radius: 5px;
+}
+
+.details {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.outlet {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+

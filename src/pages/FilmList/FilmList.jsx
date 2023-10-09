@@ -1,8 +1,8 @@
 
 import {Link, useLocation} from "react-router-dom"
-import "../FilmList/FilmList.css"
+import "./FilmList.css"
 
-export const FilmList = ({movies}) => {
+ const FilmList = ({movies}) => {
     const location = useLocation()
     
     return(
@@ -17,3 +17,4 @@ export const FilmList = ({movies}) => {
         </>
     )
 }
+export default FilmList

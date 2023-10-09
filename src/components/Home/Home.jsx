@@ -1,20 +1,23 @@
 import {getTrendingMovies} from "../../servise"
 import { useEffect, useState } from "react"
-import { FilmList } from "pages/FilmList/FilmList"
+import FilmList  from "pages/FilmList/FilmList"
+import "../Home/Home.css"
 
 
-export const Home = () => {
+ const Home = () => {
 
     const [movies, setMovies] = useState([])
 
     useEffect(() => {
     getTrendingMovies().then(setMovies)
         }, [])
-console.log('movies', movies)
+
     return (
         <div>
-            <h1>Trending today</h1>
+            <h1 className="title">Trending today</h1>
             <FilmList movies={movies}/>
         </div>
     )
 }
+
+export default Home
